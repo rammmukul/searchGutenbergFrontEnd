@@ -1,0 +1,10 @@
+h1 {
+  font-family: "Times New Roman";
+  text-align: center;
+}
+
+@media only screen and (max-width: 300px) {
+  h1 {
+    background-color: yellow;
+  }
+}

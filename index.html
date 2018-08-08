@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div id="app">
+      <h1>Search Gutenberg</h1>
+      <div v-if="basicSearchOn">
+        <basic-search
+          v-on:switch-form="switchForm"
+          v-on:input="changeText" />
+      </div>
+      <div v-else>
+        <advanced-search
+          v-on:switch-form="switchForm" />
+      </div>
+    </div>
+    <script src="./vue.js"></script>
+    <script src="./vueComponents.js"></script>
+    <script src="./main.js"></script>
+  </body>
+</html>
