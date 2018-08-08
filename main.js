@@ -24,6 +24,15 @@ const appOptions = {
     },
     switchForm (message) {
       this.basicSearchOn = !this.basicSearchOn
+    },
+    constructQuary () {
+      const queryObj = {
+        query: {}
+      }
+      if (this.basicSearchOn) {
+        queryObj.query.query_string = { query: this.search }
+      }
+      return JSON.stringify(queryObj)
     }
   }
 }
