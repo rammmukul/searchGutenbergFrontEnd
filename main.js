@@ -4,6 +4,7 @@ const appOptions = {
       <h1>Search Gutenberg</h1>
       <div v-if="basicSearchOn">
         <basic-search
+          v-model="search"
           v-on:switch-form="switchForm"
           v-on:input="changeText" />
       </div>
