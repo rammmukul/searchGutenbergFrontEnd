@@ -5,8 +5,7 @@ const appOptions = {
       <div v-if="basicSearchOn">
         <basic-search
           v-model="search"
-          v-on:switch-form="switchForm"
-          v-on:input="changeText" />
+          v-on:switch-form="switchForm"/>
       </div>
       <div v-else>
         <advanced-search
@@ -19,9 +18,6 @@ const appOptions = {
     basicSearchOn: true
   },
   methods: {
-    changeText (text) {
-      console.log(text)
-    },
     switchForm (message) {
       this.basicSearchOn = !this.basicSearchOn
     },
