@@ -21,7 +21,7 @@ const appOptions = {
     switchForm (message) {
       this.basicSearchOn = !this.basicSearchOn
     },
-    constructQuary () {
+    constructQuery () {
       const queryObj = {
         query: {}
       }
