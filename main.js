@@ -4,7 +4,7 @@ const appOptions = {
       <h1>Search Gutenberg</h1>
       <div v-if="basicSearchOn">
         <basic-search
-          v-model="search"
+          v-model="basicSearch"
           v-on:switch-form="switchForm" />
       </div>
       <div v-else>
@@ -15,19 +15,25 @@ const appOptions = {
     </div>`,
   el: '#app',
   data: {
-    search: '',
+    basicSearch: '',
     basicSearchOn: true,
-    queryObj: {}
+    queryString: ''
   },
   methods: {
     switchForm (message) {
       this.basicSearchOn = !this.basicSearchOn
     },
-    constructQuery () {
-      this.queryObj = JSON.stringify({ 'query': { 'query_string': { 'query': this.search } } })
-    },
     setAdvancedQuery (q) {
-      this.queryObj = q
+      this.queryString = q
+    },
+    getBooks (q) {
+      fetchBooks(q)
+    }
+  },
+  watch: {
+    basicSearch () {
+      this.queryString = JSON.stringify({ 'query': { 'query_string': { 'query': this.basicSearch } } })
+      this.getBooks(this.queryString)
     }
   }
 }
