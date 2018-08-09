@@ -17,7 +17,8 @@ const appOptions = {
   data: {
     basicSearch: '',
     basicSearchOn: true,
-    queryString: ''
+    queryString: '',
+    bookObj: {'title': 'hmara'}
   },
   methods: {
     switchForm (message) {
@@ -42,4 +43,5 @@ const appOptions = {
 
 Vue.component('basic-search', searchComponentOptions)
 Vue.component('advanced-search', advancedSearchComponentOptions)
+Vue.component('book', bookComponentOptions)
 const app = new Vue(appOptions)
