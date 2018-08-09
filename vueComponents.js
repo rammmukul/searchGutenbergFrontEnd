@@ -10,16 +10,30 @@ const searchComponentOptions = {
 
 const advancedSearchComponentOptions = {
   template: `<div>
+                <button @click="$emit('switch-form')">Back to Basic Search</button>
               <form>
                 <legend>Advanced Search</legend>
-                <button @click="$emit('switch-form')">Back to Basic Search</button>
                 <label for="title">Title: </label>
-                <input type="text" id="title">
+                <input type="text" id="title" v-model="title">
                 <label for="author">Author: </label>
-                <input type="text" id="author">
+                <input type="text" id="author" v-model="author">
                 <label for="subject">Subject: </label>
-                <input type="text" id="subject">
-                <button>Search</button>
+                <input type="text" id="subject" v-model="subject">
               </form>
-            </div>`
+                <button v-on:click="composeAdvancedQuery">Search</button>
+            </div>`,
+  data () {
+    return {
+      title: '',
+      author: '',
+      subject: '',
+    }
+  },
+  methods: {
+    composeAdvancedQuery () {
+      let queryObj = {}
+      queryObj = JSON.stringify({ 'query': { 'fuzzy': { 'subjects': this.subject, 'author': this.author, 'title': this.title } } })
+      this.$emit('search-query', queryObj)
+    }
+  }
 }
