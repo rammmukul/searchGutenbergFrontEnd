@@ -37,3 +37,10 @@ const advancedSearchComponentOptions = {
     }
   }
 }
+
+const bookComponentOptions = {
+  template: `<div class="book">
+              <h3 class="book-title">{{bookObj._source.title}}</h3>
+            </div>`,
+  props: ['bookObj']
+}
