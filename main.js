@@ -27,7 +27,7 @@ const appOptions = {
       this.queryString = q
     },
     async getBooks (q) {
-      const books = fetchBooks(q)
+      const books = await fetchBooks(q)
       console.log(books)
       return books
     }
