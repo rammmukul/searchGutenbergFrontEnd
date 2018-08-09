@@ -18,7 +18,8 @@ const appOptions = {
     basicSearch: '',
     basicSearchOn: true,
     basicQueryString: '',
-    timeout: 0
+    timeout: 0,
+    booksList: []
   },
   methods: {
     switchForm (message) {
@@ -32,7 +33,7 @@ const appOptions = {
       console.count('getBooks called')
       const books = await fetchBooks(query)
       console.log(books)
-      return books
+      this.booksList = books.hits.hits
     }
   },
   watch: {
