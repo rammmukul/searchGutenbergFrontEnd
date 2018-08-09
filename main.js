@@ -17,7 +17,7 @@ const appOptions = {
   data: {
     search: '',
     basicSearchOn: true,
-    queryObj: {}
+    queryObj: ''
   },
   methods: {
     switchForm (message) {
