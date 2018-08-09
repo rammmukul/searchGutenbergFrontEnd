@@ -35,8 +35,8 @@ const advancedSearchComponentOptions = {
       queryString = JSON.stringify({ 'query': { 'query_string': { 'query': `${this.title ? `title:${this.title}` : ''}
                                                           ${this.subject ? `subject:${this.subject}` : ''}
                                                           ${this.authors ? `authors:${this.authors}` : ''}` } } })
-      console.log(queryString)
-      this.$emit('search-query', queryString)
+      const isQuery = this.title.length || this.authors.length || this.subject.length
+      this.$emit('search-query', {queryString, isQuery})
     }
   }
 }

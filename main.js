@@ -22,14 +22,19 @@ const appOptions = {
     basicQueryString: '',
     timeout: 0,
     booksList: [],
-    fetching: false
+    fetching: false,
+    isAdvancedQuery: false
   },
   methods: {
-    switchForm (message) {
+    switchForm () {
+      this.basicSearch = ''
+      this.basicQueryString = ''
+      this.isAdvancedQuery = false
       this.basicSearchOn = !this.basicSearchOn
     },
-    setAdvancedQuery (query) {
-      this.getBooks(query)
+    setAdvancedQuery ({queryString, isQuery}) {
+      this.isAdvancedQuery = isQuery
+      this.getBooks(queryString)
     },
     async getBooks (query) {
       clearTimeout(this.timeout)
@@ -62,7 +67,7 @@ const appOptions = {
   },
   computed: {
     noBook () {
-      return !this.booksList.length && this.basicSearch.length && !this.fetching
+      return !this.booksList.length && !this.fetching && (this.basicSearch.length || this.isAdvancedQuery)
     }
   }
 }
