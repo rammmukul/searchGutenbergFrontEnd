@@ -26,7 +26,7 @@ const advancedSearchComponentOptions = {
     return {
       title: '',
       author: '',
-      subject: '',
+      subject: ''
     }
   },
   methods: {
