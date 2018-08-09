@@ -5,30 +5,29 @@ const appOptions = {
       <div v-if="basicSearchOn">
         <basic-search
           v-model="search"
-          v-on:switch-form="switchForm"/>
+          v-on:switch-form="switchForm" />
       </div>
       <div v-else>
         <advanced-search
+          v-on:search-query="setAdvancedQuery"
           v-on:switch-form="switchForm" />
       </div>
     </div>`,
   el: '#app',
   data: {
     search: '',
-    basicSearchOn: true
+    basicSearchOn: true,
+    queryObj: {}
   },
   methods: {
     switchForm (message) {
       this.basicSearchOn = !this.basicSearchOn
     },
     constructQuery () {
-      const queryObj = {
-        query: {}
-      }
-      if (this.basicSearchOn) {
-        queryObj.query.query_string = { query: this.search }
-      }
-      return JSON.stringify(queryObj)
+      this.queryObj = JSON.stringify({ 'query': { 'query_string': { 'query': this.search } } })
+    },
+    setAdvancedQuery (q) {
+      this.queryObj = q
     }
   }
 }

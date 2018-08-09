@@ -1,6 +1,32 @@
 h1 {
   font-family: "Times New Roman";
   text-align: center;
+  border: solid
+}
+
+#app {
+  border: solid;
+  height: 90vh
+}
+
+#search-div {
+  border: solid;
+  display: grid;
+  margin: 2em;
+}
+
+#search-bar {
+  width: 90%
+}
+
+#buttons button {
+  border: solid yellow;
+  width: 75%
+}
+
+#buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr
 }
 
 @media only screen and (max-width: 300px) {
