@@ -1,4 +1,4 @@
-function fetchBooks (q) {
+async function fetchBooks (q) {
   const url = 'http://localhost:9200/_search'
 
   const options = {
@@ -9,5 +9,6 @@ function fetchBooks (q) {
     body: q
   }
 
-  fetch(url, options).then(res => res.json()).then(console.log).catch(console.error)
+  const res = await fetch(url, options)
+  return res.json()
 }

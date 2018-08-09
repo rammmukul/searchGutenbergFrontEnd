@@ -26,8 +26,10 @@ const appOptions = {
     setAdvancedQuery (q) {
       this.queryString = q
     },
-    getBooks (q) {
-      fetchBooks(q)
+    async getBooks (q) {
+      const books = fetchBooks(q)
+      console.log(books)
+      return books
     }
   },
   watch: {
