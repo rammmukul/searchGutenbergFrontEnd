@@ -17,8 +17,7 @@ const appOptions = {
   data: {
     basicSearch: '',
     basicSearchOn: true,
-    basicQueryString: '',
-    bookObj: {'title': 'hmara'}
+    basicQueryString: ''
   },
   methods: {
     switchForm (message) {
