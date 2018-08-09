@@ -1,10 +1,13 @@
 const searchComponentOptions = {
-  template: `<div>
-              <input type="text" v-on:input="$emit('input', $event.target.value)">
-              <button>Search</button>
-              <button @click="$emit('switch-form')">Advanced Search</button>
+  template: `<div id="search-div">
+              <input id="search-bar" type="text" v-on:input="$emit('input', $event.target.value)">
+              <span id="buttons">
+                <button>Search</button>
+                <button @click="$emit('switch-form')">Advanced Search</button>
+              </span>
             </div>`
 }
+
 const advancedSearchComponentOptions = {
   template: `<div>
               <form>
