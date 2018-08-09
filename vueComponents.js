@@ -16,7 +16,7 @@ const advancedSearchComponentOptions = {
                 <label for="title">Title: </label>
                 <input type="text" id="title" v-model="title">
                 <label for="author">Author: </label>
-                <input type="text" id="author" v-model="author">
+                <input type="text" id="author" v-model="authors">
                 <label for="subject">Subject: </label>
                 <input type="text" id="subject" v-model="subject">
               </form>
@@ -25,14 +25,17 @@ const advancedSearchComponentOptions = {
   data () {
     return {
       title: '',
-      author: '',
+      authors: '',
       subject: ''
     }
   },
   methods: {
     composeAdvancedQuery () {
       let queryString = ''
-      queryString = JSON.stringify({ 'query': { 'fuzzy': { 'subjects': this.subject, 'author': this.author, 'title': this.title } } })
+      queryString = JSON.stringify({ 'query': { 'query_string': { 'query': `${this.title ? `title:${this.title}` : ''}
+                                                          ${this.subject ? `subject:${this.subject}` : ''}
+                                                          ${this.authors ? `authors:${this.authors}` : ''}` } } })
+      console.log(queryString)
       this.$emit('search-query', queryString)
     }
   }
