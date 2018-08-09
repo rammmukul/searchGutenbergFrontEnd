@@ -17,26 +17,26 @@ const appOptions = {
   data: {
     basicSearch: '',
     basicSearchOn: true,
-    queryString: '',
+    basicQueryString: '',
     bookObj: {'title': 'hmara'}
   },
   methods: {
     switchForm (message) {
       this.basicSearchOn = !this.basicSearchOn
     },
-    setAdvancedQuery (q) {
-      this.queryString = q
+    setAdvancedQuery (query) {
+      this.getBooks(query)
     },
-    async getBooks (q) {
-      const books = await fetchBooks(q)
+    async getBooks (query) {
+      const books = await fetchBooks(query)
       console.log(books)
       return books
     }
   },
   watch: {
     basicSearch () {
-      this.queryString = JSON.stringify({ 'query': { 'query_string': { 'query': this.basicSearch } } })
-      this.getBooks(this.queryString)
+      this.basicQueryString = JSON.stringify({ 'size': 10000, 'query': { 'query_string': { 'query': this.basicSearch } } })
+      this.getBooks(this.basicQueryString)
     }
   }
 }
