@@ -1,4 +1,4 @@
-async function fetchBooks (q) {
+async function fetchBooks (query) {
   const url = 'http://localhost:9200/_search'
 
   const options = {
@@ -6,7 +6,7 @@ async function fetchBooks (q) {
     headers: {
       'Content-type': 'application/json'
     },
-    body: q
+    body: query
   }
 
   const res = await fetch(url, options)
