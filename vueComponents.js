@@ -31,9 +31,9 @@ const advancedSearchComponentOptions = {
   },
   methods: {
     composeAdvancedQuery () {
-      let queryObj = {}
-      queryObj = JSON.stringify({ 'query': { 'fuzzy': { 'subjects': this.subject, 'author': this.author, 'title': this.title } } })
-      this.$emit('search-query', queryObj)
+      let queryString = ''
+      queryString = JSON.stringify({ 'query': { 'fuzzy': { 'subjects': this.subject, 'author': this.author, 'title': this.title } } })
+      this.$emit('search-query', queryString)
     }
   }
 }
