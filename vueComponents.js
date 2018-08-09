@@ -43,7 +43,19 @@ const advancedSearchComponentOptions = {
 
 const bookComponentOptions = {
   template: `<div class="book">
-              <h3 class="book-title">{{bookObj._source.title}}</h3>
+              <a>
+                <h3 class="book-title">{{bookObj._source.title}}</h3>
+              </a>
             </div>`,
-  props: ['bookObj']
+  props: ['bookObj'],
+  computed: {
+    downloadUrl () {
+      let id = this.bookObj._source.id
+      return `http://www.gutenberg.org/files/${id}/${id}-0.txt`
+    },
+    bookUrl () {
+      let id = this.bookObj._source.id
+      return `http://www.gutenberg.org/ebooks/${id}`
+    }
+  }
 }
