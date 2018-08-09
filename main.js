@@ -18,7 +18,7 @@ const appOptions = {
     basicSearch: '',
     basicSearchOn: true,
     basicQueryString: '',
-    bookObj: {'title': 'hmara'}
+    timeout: 0
   },
   methods: {
     switchForm (message) {
@@ -28,6 +28,8 @@ const appOptions = {
       this.getBooks(query)
     },
     async getBooks (query) {
+      clearTimeout(this.timeout)
+      console.count('getBooks called')
       const books = await fetchBooks(query)
       console.log(books)
       return books
@@ -35,8 +37,9 @@ const appOptions = {
   },
   watch: {
     basicSearch () {
+      clearTimeout(this.timeout)
       this.basicQueryString = JSON.stringify({ 'size': 10000, 'query': { 'query_string': { 'query': this.basicSearch } } })
-      this.getBooks(this.basicQueryString)
+      this.timeout = setTimeout(() => { this.getBooks(this.basicQueryString) }, 500)
     }
   }
 }
