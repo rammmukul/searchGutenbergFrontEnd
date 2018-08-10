@@ -12,7 +12,9 @@ const appOptions = {
           v-on:search-query="setAdvancedQuery"
           v-on:switch-form="switchForm" />
       </div>
-      <book v-for="book of booksList" :bookObj=book />
+      <div id="books">
+        <book v-for="book of booksList" :bookObj=book />
+      </div>
       <p v-if="noBook">No Books for you...</p>
     </div>`,
   el: '#app',
