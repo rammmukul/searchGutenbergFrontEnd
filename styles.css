@@ -26,6 +26,7 @@ h1 {
   border: 1px double;
   font-size: 1em;
   box-shadow: 3px 3px 1px 0.1px #ccc;
+  cursor: pointer;
 }
 
 #search-bar::placeholder {
