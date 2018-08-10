@@ -56,7 +56,7 @@ const bookComponentOptions = {
                   <li class="author" v-for="author in bookObj._source.authors">{{ author }} </li>
                 </ul>
                 <ul class="subjects" id="subjects" >
-                  <li class="subject" v-for="subject in bookObj._source.subjects">{{ subject }} </li>
+                  <li class="subject" v-for="subject in bookObj._source.subjects"><span>{{ subject }}</span> </li>
                 </ul>
               </a>
             </div>`,
