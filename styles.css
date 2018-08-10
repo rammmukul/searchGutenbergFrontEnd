@@ -19,6 +19,8 @@ h1 {
   display: grid;
   grid-template-columns: 8fr 1fr;
   grid-gap: 0.5em;
+  margin-right: 2em;
+  margin-left: 2em
 }
 
 #search-div button, #buttons button {
