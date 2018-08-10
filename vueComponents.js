@@ -1,26 +1,33 @@
 const searchComponentOptions = {
   template: `<div id="search-div">
-              <input id="search-bar" type="text" v-on:input="$emit('input', $event.target.value)">
-              <span id="buttons">
-                <button>Search</button>
-                <button @click="$emit('switch-form')">Advanced Search</button>
-              </span>
+              <input id="search-bar" type="text" v-on:input="$emit('input', $event.target.value)" placeholder="Type your query">
+              <button @click="$emit('switch-form')">Advanced Search</button>
             </div>`
 }
 
 const advancedSearchComponentOptions = {
-  template: `<div>
-                <button @click="$emit('switch-form')">Back to Basic Search</button>
-              <form>
+  template: `<div id="advanced-search">
+              <form id="form">
                 <legend>Advanced Search</legend>
-                <label for="title">Title: </label>
-                <input type="text" id="title" v-model="title">
-                <label for="author">Author: </label>
-                <input type="text" id="author" v-model="authors">
-                <label for="subject">Subject: </label>
-                <input type="text" id="subject" v-model="subject">
+                <span id="fields">
+                  <span class="title">
+                    <label for="title">Title: </label>
+                    <input type="text" id="title" v-model="title">
+                  </span>
+                  <span class="author">
+                    <label for="author">Author: </label>
+                    <input type="text" id="author" v-model="authors">
+                  </span>
+                  <span class="subject">
+                    <label for="subject">Subject: </label>
+                    <input type="text" id="subject" v-model="subject">
+                  </span>
+                </span>
               </form>
-                <button v-on:click="composeAdvancedQuery">Search</button>
+              <div id="buttons">
+                <button @click="$emit('switch-form')" id="back-to-basic">Back to Basic Search</button>
+                <button v-on:click="composeAdvancedQuery" id="search-btn">Search</button>
+              </div>
             </div>`,
   data () {
     return {
