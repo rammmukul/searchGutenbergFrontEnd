@@ -150,12 +150,22 @@ h1 {
   padding: 0.2em
 }
 
+#spinner {
+  box-sizing: border-box;
+  height: 1rem;
+  margin-bottom: -1rem;
+}
 
+@keyframes loading {
+  from { background-position: -70px; }
+  to { background-position: 0px; }
+}
 
-
-
-
-
-
-
-
+.spinning {
+  background-color: blue;
+  background-image: repeating-linear-gradient(90deg, transparent, transparent 35px, rgba(255,255,255,.5) 35px, rgba(255,255,255,.5) 70px);
+  animation-name: loading;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}

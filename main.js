@@ -1,12 +1,13 @@
 const appOptions = {
   template: `
     <div>
+      <div id="spinner" v-bind:class="{ spinning: fetching }"></div>
       <header>
         <h1>Search Gutenberg</h1>
       </header>
       <div v-if="basicSearchOn">
         <basic-search
-          v-model="basicSearch"
+          v-model="search"
           v-on:switch-form="switchForm" />
       </div>
       <div v-else>
@@ -21,9 +22,9 @@ const appOptions = {
     </div>`,
   el: '#app',
   data: {
-    basicSearch: '',
+    search: '',
     basicSearchOn: true,
-    basicQueryString: '',
+    qeryString: '',
     timeout: 0,
     booksList: [],
     fetching: false,
@@ -31,14 +32,14 @@ const appOptions = {
   },
   methods: {
     switchForm () {
-      this.basicSearch = ''
-      this.basicQueryString = ''
+      this.search = ''
+      this.qeryString = ''
       this.isAdvancedQuery = false
       this.basicSearchOn = !this.basicSearchOn
     },
     setAdvancedQuery ({queryString, isQuery}) {
       this.isAdvancedQuery = isQuery
-      this.getBooks(queryString)
+      this.search = queryString
     },
     async getBooks (query) {
       clearTimeout(this.timeout)
@@ -62,16 +63,16 @@ const appOptions = {
     }
   },
   watch: {
-    basicSearch () {
+    search () {
       this.fetching = true
       clearTimeout(this.timeout)
-      this.basicQueryString = JSON.stringify({ 'size': 10000, 'query': { 'query_string': { 'query': this.basicSearch } } })
-      this.timeout = setTimeout(() => { this.getBooks(this.basicQueryString) }, 500)
+      this.qeryString = JSON.stringify({ 'size': 10000, 'query': { 'query_string': { 'query': this.search } } })
+      this.timeout = setTimeout(() => { this.getBooks(this.qeryString) }, 500)
     }
   },
   computed: {
     noBook () {
-      return !this.booksList.length && !this.fetching && (this.basicSearch.length || this.isAdvancedQuery)
+      return !this.booksList.length && !this.fetching && (this.search.length || this.isAdvancedQuery)
     }
   }
 }

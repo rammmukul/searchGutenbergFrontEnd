@@ -26,7 +26,6 @@ const advancedSearchComponentOptions = {
               </form>
               <div id="buttons">
                 <button @click="$emit('switch-form')" id="back-to-basic">Back to Basic Search</button>
-                <button v-on:click="composeAdvancedQuery" id="search-btn">Search</button>
               </div>
             </div>`,
   data () {
@@ -39,11 +38,22 @@ const advancedSearchComponentOptions = {
   methods: {
     composeAdvancedQuery () {
       let queryString = ''
-      queryString = JSON.stringify({ 'query': { 'query_string': { 'query': `${this.title ? `title:${this.title}` : ''}
-                                                          ${this.subject ? `subject:${this.subject}` : ''}
-                                                          ${this.authors ? `authors:${this.authors}` : ''}` } } })
+      queryString = `${this.title ? `title:${this.title}` : ''}
+                    ${this.subject ? `subject:${this.subject}` : ''}
+                    ${this.authors ? `authors:${this.authors}` : ''}`
       const isQuery = this.title.length || this.authors.length || this.subject.length
       this.$emit('search-query', {queryString, isQuery})
+    }
+  },
+  watch: {
+    title () {
+      this.composeAdvancedQuery()
+    },
+    authors () {
+      this.composeAdvancedQuery()
+    },
+    subject () {
+      this.composeAdvancedQuery()
     }
   }
 }
