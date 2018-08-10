@@ -17,6 +17,13 @@ h1 {
   grid-gap: 0.5em;
 }
 
+#search-div button, #buttons button {
+  background-color: #45aee7;
+  border: 1px double;
+  font-size: 1em;
+  box-shadow: 3px 3px 1px 0.1px #ccc;
+}
+
 #search-bar::placeholder {
   text-align: center;
   font-size: 1.5rem;
