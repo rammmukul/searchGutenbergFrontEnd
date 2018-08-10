@@ -43,7 +43,6 @@ const appOptions = {
     },
     async getBooks (query) {
       clearTimeout(this.timeout)
-      console.count('getBooks called')
       const books = await this.fetchBooks(query)
       console.log(books)
       this.booksList = books.hits.hits
