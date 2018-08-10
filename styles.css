@@ -1,24 +1,33 @@
 h1 {
   font-family: "Times New Roman";
   text-align: center;
-  border: solid;
+  width: 90%;
+  margin: 0.5em auto;
+  color: #f4f3f1;
+  font-size: 2em;
+  text-shadow:  2px 2px #e0b83e, 
+                3px 3px #7f9626,
+                4px 4px #bd4030;
+  background-color: #36173b;
 }
 
 #search-div {
   display: grid;
   grid-template-columns: 8fr 1fr;
-  grid-gap: 0.5em
+  grid-gap: 0.5em;
 }
 
 #search-bar::placeholder {
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  color: #ccc
 }
 
 #search-bar {
   font-size: 2rem;
   text-align: center;
-  margin-left: 0.5em
+  margin-left: 0.5em;
+  box-shadow: 3px 3px 1px 0.1px #ccc;
 }
 
 #search-div button {
@@ -47,20 +56,15 @@ h1 {
   justify-content: center
 }
 
-.title {
-  margin: 1em
+.title, .author, .subject {
+  margin: 1em;
 }
 
-.subject {
-  margin: 1em
-}
-
-.author {
-  margin: 1em
+.title input, .author input, .subject input {
+  box-shadow: 3px 3px 1px 0.1px #ccc;
 }
 
 #books {
-  border: solid yellow;
   display: flex;
   flex-direction: column;
   width: 90%;
@@ -72,26 +76,71 @@ h1 {
   flex: 1;
   border: 0.5px solid;
   display: grid;
-  margin-bottom: 0.5em
+  margin-bottom: 0.5em;
+  width: 90%
+}
+
+.book:hover {
+  box-shadow: 3px 3px 10px 5px #ccc;
+}
+
+.book a {
+  text-decoration: none;
 }
 
 .book-title {
-  border: solid aqua;
-  text-align: center
+  text-align: center;
+  margin: 0;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  font-family: "Times";
+  font-size: 1.5em;
+  color: #109ad7;
+}
+
+.book-title,.authors, .subjects {
+  width: 100%;
+  overflow: auto;
 }
 
 .authors {
   list-style-type: none;
-  border: solid orange;
   display: flex;
-  justify-content: center
+  justify-content: center;
+  height: 4em;
+  padding-left: 0;
+  overflow: auto;
+  margin: 0;
+  height: 30%;
+  font-family: "helvetica";
+  color: #000
 }
 
 .subjects {
   list-style-type: none;
-  border: solid green;
   display: flex;
-  justify-content: center
+  justify-content: center;
+  padding-left: 0;
+  height: 4em;
+  overflow: auto;
+  margin: 0;
+  font-family: "courier", "monospace"
+}
+
+#books p {
+  text-align: center;
+  /*border: solid;
+  background-color: #f5bb16;*/
+  color: #cd2325;
+  width: 80%;
+  margin: 1em auto;
+  font-family: "monospace"
+}
+
+.subject span {
+  background-color: #edb426;
+  color: #1d150a;
+  padding: 0.2em
 }
 
 
