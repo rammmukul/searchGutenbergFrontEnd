@@ -2,7 +2,9 @@ const appOptions = {
   template: `
     <div>
       <div id="spinner" v-bind:class="{ spinning: fetching }"></div>
-      <h1>Search Gutenberg</h1>
+      <header>
+        <h1>Search Gutenberg</h1>
+      </header>
       <div v-if="basicSearchOn">
         <basic-search
           v-model="search"
@@ -15,8 +17,8 @@ const appOptions = {
       </div>
       <div id="books">
         <book v-for="book of booksList" :bookObj=book />
+        <p v-if="noBook"> :-( No search results for {{ basicSearch }}, check the spelling or try a different term</p>
       </div>
-      <p v-if="noBook">No Books for you...</p>
     </div>`,
   el: '#app',
   data: {
