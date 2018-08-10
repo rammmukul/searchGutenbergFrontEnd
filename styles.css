@@ -25,20 +25,6 @@ h1 {
   margin-right: 0.5em
 }
 
-.book {
-  border: solid;
-  margin-top: 1em;
-  display: grid;
-}
-
-.authors {
-  list-style-type: none
-}
-
-.subjects {
-  list-style-type: none
-}
-
 #advanced-search {
   display: grid;
 }
@@ -73,9 +59,40 @@ h1 {
   margin: 1em
 }
 
+#books {
+  border: solid yellow;
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+  margin: 0 auto;
+  margin-top: 1em;
+}
 
+.book {
+  flex: 1;
+  border: 0.5px solid;
+  display: grid;
+  margin-bottom: 0.5em
+}
 
+.book-title {
+  border: solid aqua;
+  text-align: center
+}
 
+.authors {
+  list-style-type: none;
+  border: solid orange;
+  display: flex;
+  justify-content: center
+}
+
+.subjects {
+  list-style-type: none;
+  border: solid green;
+  display: flex;
+  justify-content: center
+}
 
 
 
