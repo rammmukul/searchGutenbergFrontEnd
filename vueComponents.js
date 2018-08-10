@@ -52,11 +52,11 @@ const bookComponentOptions = {
   template: `<div class="book">
               <a :href=bookUrl target="_blank">
                 <h3 class="book-title">{{bookObj._source.title}}</h3>
-                <ul class="authors" id="authors" v-for="author in bookObj._source.authors">
-                  <li class="author">{{ author }}</li>
+                <ul class="authors" id="authors">
+                  <li class="author" v-for="author in bookObj._source.authors">{{ author }} </li>
                 </ul>
-                <ul class="subjects" id="subjects" v-for="subject in bookObj._source.subjects">
-                  <li class="subject">{{ subject }}</li>
+                <ul class="subjects" id="subjects" >
+                  <li class="subject" v-for="subject in bookObj._source.subjects">{{ subject }} </li>
                 </ul>
               </a>
             </div>`,
