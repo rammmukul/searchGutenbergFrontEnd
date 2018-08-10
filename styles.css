@@ -141,12 +141,13 @@ h1 {
 
 #books p {
   text-align: center;
-  /*border: solid;
-  background-color: #f5bb16;*/
+  /* border:solid; */
+  /*background-color: #f5bb16;*/
   color: #cd2325;
   width: 80%;
   margin: 1em auto;
-  font-family: "monospace"
+  font-family: "monospace";
+  box-shadow: 5px 5px 5px #ccc
 }
 
 .subject span {
