@@ -24,7 +24,7 @@ const appOptions = {
   data: {
     search: '',
     basicSearchOn: true,
-    qeryString: '',
+    queryString: '',
     timeout: 0,
     booksList: [],
     fetching: false,
@@ -33,7 +33,7 @@ const appOptions = {
   methods: {
     switchForm () {
       this.search = ''
-      this.qeryString = ''
+      this.queryString = ''
       this.isAdvancedQuery = false
       this.basicSearchOn = !this.basicSearchOn
     },
@@ -66,8 +66,8 @@ const appOptions = {
     search () {
       this.fetching = true
       clearTimeout(this.timeout)
-      this.qeryString = JSON.stringify({ 'size': 10000, 'query': { 'query_string': { 'query': this.search } } })
-      this.timeout = setTimeout(() => { this.getBooks(this.qeryString) }, 500)
+      this.queryString = JSON.stringify({ 'size': 10000, 'query': { 'query_string': { 'query': this.search } } })
+      this.timeout = setTimeout(() => { this.getBooks(this.queryString) }, 500)
     }
   },
   computed: {
