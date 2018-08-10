@@ -1,36 +1,88 @@
 h1 {
   font-family: "Times New Roman";
   text-align: center;
-  border: solid
-}
-
-#app {
   border: solid;
-  height: 90vh
 }
 
 #search-div {
-  border: solid;
   display: grid;
-  margin: 2em;
+  grid-template-columns: 8fr 1fr;
+  grid-gap: 0.5em
+}
+
+#search-bar::placeholder {
+  text-align: center;
+  font-size: 2rem;
 }
 
 #search-bar {
-  width: 90%
+  font-size: 2rem;
+  text-align: center;
+  margin-left: 0.5em
 }
 
-#buttons button {
-  border: solid yellow;
-  width: 75%
+#search-div button {
+  margin-right: 0.5em
+}
+
+.book {
+  border: solid;
+  margin-top: 1em;
+  display: grid;
+}
+
+.authors {
+  list-style-type: none
+}
+
+.subjects {
+  list-style-type: none
+}
+
+#advanced-search {
+  display: grid;
+}
+
+#form legend {
+  text-align: center;
 }
 
 #buttons {
-  display: grid;
-  grid-template-columns: 1fr 1fr
+  display: flex;
+  justify-content: center
 }
 
-@media only screen and (max-width: 300px) {
-  h1 {
-    background-color: yellow;
-  }
+#buttons button {
+  margin: 1em
 }
+
+#fields {
+  display: flex;
+  justify-content: center
+}
+
+.title {
+  margin: 1em
+}
+
+.subject {
+  margin: 1em
+}
+
+.author {
+  margin: 1em
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
