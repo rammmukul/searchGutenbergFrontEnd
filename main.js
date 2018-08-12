@@ -24,7 +24,7 @@ const appOptions = {
   data: {
     search: '',
     basicSearch: true,
-    qeryString: '',
+    queryString: '',
     timeout: 0,
     booksList: [],
     fetching: false
@@ -40,7 +40,6 @@ const appOptions = {
     },
     async getBooks (query) {
       clearTimeout(this.timeout)
-      console.count('getBooks called')
       const books = await this.fetchBooks(query)
       console.log(books)
       this.booksList = books.hits.hits
@@ -63,8 +62,8 @@ const appOptions = {
     search () {
       this.fetching = true
       clearTimeout(this.timeout)
-      this.qeryString = JSON.stringify({ 'size': 10000, 'query': { 'query_string': { 'query': this.search } } })
-      this.timeout = setTimeout(() => { this.getBooks(this.qeryString) }, 500)
+      this.queryString = JSON.stringify({ 'size': 10000, 'query': { 'query_string': { 'query': this.search } } })
+      this.timeout = setTimeout(() => { this.getBooks(this.queryString) }, 500)
     }
   },
   computed: {

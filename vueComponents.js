@@ -71,10 +71,6 @@ const bookComponentOptions = {
             </div>`,
   props: ['bookObj'],
   computed: {
-    downloadUrl () {
-      let id = this.bookObj._source.id
-      return `http://www.gutenberg.org/files/${id}/${id}-0.txt`
-    },
     bookUrl () {
       let id = this.bookObj._source.id
       return `http://www.gutenberg.org/ebooks/${id}`
