@@ -5,7 +5,7 @@ const appOptions = {
       <header>
         <h1>Search Gutenberg</h1>
       </header>
-      <div v-if="basicSearchOn">
+      <div v-if="basicSearch">
         <basic-search
           v-model="search"
           v-on:switch-form="switchForm" />
@@ -17,28 +17,25 @@ const appOptions = {
       </div>
       <div id="books">
         <book v-for="book of booksList" :bookObj=book />
-        <p v-if="noBook"> :-( No search results for {{ basicSearch }}, check the spelling or try a different term</p>
+        <p v-if="noBook"> :-( No search results for {{ search }}, check the spelling or try a different term</p>
       </div>
     </div>`,
   el: '#app',
   data: {
     search: '',
-    basicSearchOn: true,
+    basicSearch: true,
     qeryString: '',
     timeout: 0,
     booksList: [],
-    fetching: false,
-    isAdvancedQuery: false
+    fetching: false
   },
   methods: {
     switchForm () {
       this.search = ''
       this.qeryString = ''
-      this.isAdvancedQuery = false
-      this.basicSearchOn = !this.basicSearchOn
+      this.basicSearch = !this.basicSearch
     },
-    setAdvancedQuery ({queryString, isQuery}) {
-      this.isAdvancedQuery = isQuery
+    setAdvancedQuery (queryString) {
       this.search = queryString
     },
     async getBooks (query) {
@@ -72,7 +69,7 @@ const appOptions = {
   },
   computed: {
     noBook () {
-      return !this.booksList.length && !this.fetching && (this.search.length || this.isAdvancedQuery)
+      return !this.booksList.length && !this.fetching && !!this.search.trim().length
     }
   }
 }
