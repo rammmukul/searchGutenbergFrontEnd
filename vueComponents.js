@@ -41,8 +41,7 @@ const advancedSearchComponentOptions = {
       queryString = `${this.title ? `title:${this.title}` : ''}
                     ${this.subject ? `subject:${this.subject}` : ''}
                     ${this.authors ? `authors:${this.authors}` : ''}`
-      const isQuery = this.title.length || this.authors.length || this.subject.length
-      this.$emit('search-query', {queryString, isQuery})
+      this.$emit('search-query', queryString)
     }
   },
   watch: {
